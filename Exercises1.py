@@ -9,8 +9,7 @@ Student needs:
 Exercises1.py
 
 We will mainly use the following window panes: IPython Console, Editor, 
-File Explorer, and Object Inspector.
-#%% breaks up the Editor document into cells. The green triangle in the tool 
+File Explorer, and Object Inspector. #%% breaks up the Editor document into cells. The green triangle in the tool 
 bar executes the entire file (after saving it), Ctrl-Enter (Command-Return on a
 Mac) executes only the cell that the cursor is in (but does not save). 
 
@@ -61,9 +60,12 @@ areatriangle(2,20)
 """
 Solution:
 """
+
 #%%
 def areatriangle(b,h):
- 
+    area = .5*b*h
+    # print("The area of a triangle of base", b, "and height", h, "is", area)
+    print('The area of a triangle of base {} and height {} is {}'.format(b, h, area))
  
 #%%
 """
@@ -113,15 +115,25 @@ The Celsius temperature 50.0 is equivalent to 122.0 degrees Fahrenheit.
 celsius_to_fahrenheit(100)
 celsius_to_fahrenheit(0)
 celsius_to_fahrenheit(50.)
+
+celsius_to_fahrenheit2(100)
+celsius_to_fahrenheit2(0)
+celsius_to_fahrenheit2(50.)
 #%%
 """
 Solution:
 """
 #%%
 def celsius_to_fahrenheit(temp):
+    newTemp = ((9/5)*(temp))+32
+    print("The Celsius temperature", temp,"is equivalent to", newTemp,end='')
+    print(" degrees Fahrenheit")
 
 
-
+def celsius_to_fahrenheit2(temp_c):
+    temp_f = ((9/5)*(temp_c))+32
+    result_str = 'The Celsius temperature {} is equivalent to {} degrees Fahrenheit.'.format(temp_c,temp_f)
+    print(result_str)
 
 
 #%%
@@ -169,12 +181,12 @@ def name():
     lname = input("Enter your last name: ")
     fullname = fname + " " + lname
     
-
-
-
+    city = input("Enter the city you live in:")
+    state = input("Enter the state you live in:")
+    city_state = city + "," + state
 
     print("Your name is:", fullname)
-
+    print("You live in:", city_state)
 
 #%%
 """
@@ -257,9 +269,11 @@ Solution:
 """
 #%%
 def absolutevalue(num):
-
-
-
+    if num >= 0:
+        abs_num = ntempum
+    else:
+        abs_num = -1 * num
+    print("The absolute value of" ,num, "is" ,abs_num)
 
 
 #%%
@@ -322,11 +336,11 @@ def fahrenheit_to_celsius3():
     of strings to check whether input is made of of digits. 
     """
         
-    temp_str = input("Enter a Fahrentheit temperature: ")
-    if temp_str:
-        if temp_str.isdigit():  
-            temp = int(temp_str)
-            newTemp = 5*(temp-32)/9
+    temp_str = input("Enter a Fahrentheit temperature: ") #ask for user interactive input
+    if temp_str: # check if anything is there
+        if temp_str.isdigit():  # check if its a number in the string
+            temp = int(temp_str) # attempt to convert it to an int
+            newTemp = 5*(temp-32)/9 # calculate the conversion
             print("The Fahrenheit temperature",temp,"is equivalent to ",end='')
             print(newTemp,"degrees Celsius")
         else:
@@ -360,7 +374,9 @@ Solution:
 #%%
 
 def inches_to_feet2(inches):
-
+    feet = inches// 12  # there is 12 inches in 1 foot
+    extra_inches = inches % 12
+    print(inches,"inches is",feet,"feet and",extra_inches,"inches") 
 
 
 
@@ -397,11 +413,12 @@ all the numbers on the same line or different lines. Use a while loop.
 Solution:
 """
 #%%
-
-
-
-
-
+count_down = 10
+while count_down >= 1:
+    print(count_down,end=" ")
+    count_down = count_down - 1
+print()
+print("BLASTOFF!")
 
 
 
@@ -436,6 +453,10 @@ Solution:
 """
 #%%
 def countdown1():
+    for cd in range(10, 0, -1):
+        print(cd, end=" ")
+    print()
+    print("BLASTOFF!")
 
 
 
@@ -462,10 +483,9 @@ def favorite():
 """
 My solution:
 """
-
-
-
-
+def favorite():
+    my_toy = input("What is my favorite toy? ")
+    print("Your favorite toy is", my_toy)
 
 
 
@@ -473,3 +493,4 @@ My solution:
 """
 end solution
 """  
+
