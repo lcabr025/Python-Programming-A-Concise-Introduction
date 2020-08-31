@@ -97,8 +97,9 @@ are expected to do and shows how the auto-grader expects it to look.
 """
 #%%
 def problem1_1():
-    pass # replace this pass (a do-nothing) statement with your code
+    print("Problem Set 1")
 
+# problem1_1()
     
 #%%
 
@@ -109,7 +110,12 @@ numbers x and y on separate lines, the sum printing first.
 """
 #%%
 def problem1_2(x,y):
-    pass # replace this pass (a do-nothing) statement with your code
+
+    sum = x + y
+    print(sum)
+
+    product = x * y
+    print(product)
 
 
 #%% 
@@ -136,9 +142,10 @@ but be sure this isn't in the submitted function.
 #%%
 def problem1_3(n):
     my_sum = 0
-    pass # replace this pass (a do-nothing) statement with your code
-
-
+    for number in range(1,n+1):
+        #print(number) use to verify that my loop was set up correctly
+        my_sum = my_sum + number #update the running total
+    print(my_sum)
 
     
 
@@ -161,7 +168,9 @@ just one space or the auto-grader may not give you credit.
 """
 #%%
 def problem1_4(miles):
-    pass # replace this pass (a do-nothing) statement with your code
+    """converts miles to feet"""
+    feet = miles*5280
+    print("There are {} feet in {} miles".format(feet,miles))
 
 
     
@@ -182,12 +191,15 @@ Tip: Be careful about the ages 7 (a seven year old is not under 7) and 21.
 Also be careful to make the phrases exactly as shown for the auto-grader.
 """
 #%%
-def problem1_5(age):
-    pass # replace this pass (a do-nothing) statement with your code
+def problem1_5(age):   
+    if age < 7:
+        print("Have a glass of milk.")
+    elif age < 21:
+        print("Have a coke.")
+    else:
+        print("Have a martini.")
 
-
-
-
+0
     
 #%%
 """
@@ -221,7 +233,8 @@ a loop.
 """
 #%%
 def problem1_6():
-    pass # replace this pass (a do-nothing) statement with your code
+    for number in range(1,101,2):
+        print(number, end=" ") #use to verify that my loop was set up correctly
 
 
 
@@ -264,12 +277,17 @@ The area of a trapezoid with bases 3.0 and 4.0 and height 8.0 is 28.0
 """  
 #%%
 def problem1_7():
-    pass # replace this pass (a do-nothing) statement with your code
 
+    base1 = input("Enter the length of the bases:")
+    base1 = float(base1) #convert to float type
+    base2 = input("Enter the length of the other base:")
+    base2 = float(base2) #convert to float type
+    h = input("Enter the height")
+    h = float(h) #convert to float type
 
+    Area = (1/2)*(base1 + base2)*h
 
-
-
+    print("The area of a trapezoid with bases {} and {} and height {} is {}".format(base1,base2,h,Area))
 
 
 
