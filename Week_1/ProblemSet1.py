@@ -170,7 +170,7 @@ just one space or the auto-grader may not give you credit.
 def problem1_4(miles):
     """converts miles to feet"""
     feet = miles*5280
-    print("There are {} feet in {} miles".format(feet,miles))
+    print("There are {} feet in {} miles.".format(feet,miles))
 
 
     
