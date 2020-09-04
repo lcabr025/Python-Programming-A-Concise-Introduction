@@ -75,10 +75,11 @@ def count_a(alist):
     print("There are",ct,"letter a's in the list.")
 #%%
 """
-Note there is a basic design pattern to these lists. Some variable for 
-accumulating the results (above it is ct) is initiated before entering the
-loop. This variable is updated within the loop. Afterwards that variable is
-used (in this case ct is printed out).    
+Note there is a basic design pattern to these lists. 
+1) Some variable for accumulating the results (above it is ct) is initiated before entering the
+loop. 
+2) This variable is updated within the loop. 
+3) Afterwards that variable is used (in this case ct is printed out).    
 """
 
 """
@@ -107,9 +108,13 @@ Solution:
 """
 #%%
 def average(numlis):
-
-
-
+    my_sum = float(0) # 0.00 #my_sum is the variable use to accumulate result
+    for item in numlis:
+        print(item)
+        my_sum = my_sum + item #update variable within the loop (the running total)
+    avg = my_sum / len(numlis)
+    output = "average is {} its count is {}".format(avg,len(numlis))
+    print(output) #variable being used (printed out)
 
 
 
@@ -153,8 +158,15 @@ misc_list = ['ball', 3.14, -50, 'university', "course"]
 Solution:
 """
 #%%
+def print_list(lis):
+    for item in lis:
+        print(item)
 
+#test the function by calling it with these pre-define lists:
 
+# print_list(letter_list)
+# print_list(cap_list)
+# print_list(misc_list)
 
 #%%
 """
@@ -271,9 +283,13 @@ What is the population of the state in the second element?
 Solution:
 """
 #%%
-
-
-
+print(newEngland[0])
+print(newEngland[1])
+state = newEngland[1]
+print(state)
+print("population: ", state[1],    " name:", state[0])
+print(newEngland[1][0])
+print(newEngland[1][1])
 
 
 
@@ -380,31 +396,28 @@ Solution Starter:
 """
 #%%
 def average(nlis):
-    pass  # delete this and enter your code starting here
+    '''capture the count of items'''
+    count = len(nlis) 
     
+    '''print horizontally & add all the numbers in the list together'''
+    sum_ = 0
+    for index in range(0,count):
+        value = nlis[index] #lookup the list value by using the index
+        print(value, end=" ") #print horizontally
+        sum_ = sum_ + value #add the value to the running sum
+    print() #adding a new line
+
+    '''calculate the average'''
+    average = sum_ / count
+
+    '''print and format the result'''
+    print("the average is", average)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''testing my function''' 
+average(numlis2)
 
 
 
@@ -471,36 +484,43 @@ is repeated here for your convenience in modifying it.
 Solution (modify the copy below to be your simple_poem function):
 """
 #%%
+
+#Import any external dependencies.
 import random
 
+#Create variables with a global scope.
 verbs=["are","is","goes","cooks","shoots","faints","chews","screams"]
 nouns=["bear","lion","mother","baby","sister","car","bicycle","book"]
 adverbs=["handily","sweetly","sourly","gingerly","forcefully","meekly"]
 articles=["a","the","that","this"]
 
 def simple_poem():
-    article = random.choice(articles)    
-    noun = random.choice(nouns)
-    verb = random.choice(verbs)
-    adverb = random.choice(adverbs)
-    
-    our_sentence = article + " " + noun + " " + verb + " " + adverb + "."
-    our_sentence = our_sentence.capitalize()
-    
-    print(our_sentence)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    #Create an empty list to store the 4 lines of the poem.
+    # poem = []
+
+    #This poem has 4 sentences. So we loop 4 times.
+    for index in range(0,4):
+
+        #Craft the ramdom sentences!
+        article = random.choice(articles)    
+        noun = random.choice(nouns)
+        verb = random.choice(verbs)
+        adverb = random.choice(adverbs)
+        
+        our_sentence = article + " " + noun + " " + verb + " " + adverb + "."
+        our_sentence = our_sentence.capitalize()
+
+        # poem.append(our_sentence)
+        print(our_sentence)
+        
+    #print(poem)
+        
+    # for line in poem: 
+    #     print(line)
+
+
+
+simple_poem()
     
 #%%
 """
@@ -583,16 +603,26 @@ You've ordered:
 Solution:
 """
 #%%
+def diner_waitress():
+
+    #asks for your order.
+    print("Hello, I'll be your waitress. What will you have?")
+
+    #Start an empty list.
+    order = []
+
+    #while loop and input () statement to gather the order.
+    while True:
+        food = input("menu item: ") 
+        # print("menu item: ",food) #To print each individual item
+        if food.lower() == "that's all":
+            break
+        else:
+            order.append(food)
+    print("You've ordered:")
+    print(order)
 
 
+diner_waitress()
 
-
-
-
-
-
-
-
-
-
-#%%
+# %%
