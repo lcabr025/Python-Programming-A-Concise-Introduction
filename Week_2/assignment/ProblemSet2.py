@@ -19,7 +19,7 @@ Write a function 'problem2_1()' that sets a variable lis = list(range(20,30)) an
 does all of the following, each on a separate line: 
 (a) print the element of lis with the index 3
 (b) print lis itself
-(c) write a 'for' loop that prints out every element of lis. Recall that 
+(c) write a 'for' loop that prints out every element of lis. Recall- that 
     len() will give you the length of such a data collection if you need that.
     Use end=" " to put one space between the elements of the list lis.  Allow
     the extra space at the end of the list to stand, don't make a special case
@@ -39,7 +39,7 @@ def problem2_1():
 
     # (c) Write a 'for' loop that prints out every element of lis.
     for num in lis:
-        print(lis, end=' ')
+        print(num, end=' ')
     print()
 
 # Time to test our function!!! Let's call it and see what happens
@@ -85,8 +85,35 @@ alist = ["a","e","i","o","u","y"]
 blist = ["alpha", "beta", "gamma", "delta", "epsilon", "eta", "theta"] 
 
 def problem2_2(my_list):
-    pass # replace this pass (a do-nothing) statement with your code
+    
+    # 0) print the whole list
+    print(my_list)
 
+    # 1) print item with index 0
+    print(my_list[0])
+
+    # 2) print last item in the list
+    print(my_list[len(my_list)-1])
+
+    # 3) print items with index 3-5 not including 5
+    print(my_list[3:5])
+
+    # 4) print items up to index 3 but not including item 3
+    print(my_list[:3])
+
+    # 5) print items starting at index 3 to end
+    print(my_list[3:])
+
+    # 6) print the length of the list
+    print(len(my_list))
+
+    # 7) use append() of a list to append the letter "z" onto a list
+    my_list.append("z")
+    print(my_list)
+
+# Time to test our function!!! Let's call it and see what happens
+problem2_2(alist)
+problem2_2(blist)
 
 
 
@@ -147,9 +174,17 @@ newEngland = ["Maine","New Hampshire","Vermont", "Rhode Island",
 "Massachusetts","Connecticut"]
 
 def problem2_3(ne):
-    pass # replace this pass (a do-nothing) statement with your code
-
     
+    #create a 'for' loop that steps through the list above
+    for state in ne:
+        
+        #print the name of the state in a new line and add the number of letters
+        print("{} has {} letters.".format(state, len(state)))
+
+problem2_3(newEngland)
+        
+    
+
 #%%
 """
 Problem 2_4:
@@ -166,9 +201,31 @@ list of random numbers. Print out the list (in list form).
 import random
 
 def problem2_4():
-    """ Make a list of 10 random reals between 30 and 35 """
-    random.seed()
-    pass # replace this pass (a do-nothing) statement with your code
+
+    # Set the seed of the 'random' library in this function to '70'
+    random.seed(70)
+    
+    # Initialize an empty list to store the randoms we generate later
+    my_list = []
+    
+    # loop 10 times
+    for i in range(0,10):
+        # generate a list of random reals between 30 and 35 only using random.random() 
+        # (note: random.randint(30,35) does the same thing but we can's use it!)
+        rand_num = (random.random() * 5) + 30
+
+        # Append to the list!
+        my_list.append(rand_num)
+
+    #print out the list in list form
+    print(my_list)
+
+
+#testing my function
+problem2_4()
+
+
+
 
 #%%
 """
@@ -221,8 +278,24 @@ def problem2_5():
     """ Simulates rolling a die 10 times."""
     # Setting the seed makes the random numbers always the same
     # This is to make the auto-grader's job easier.
+
     random.seed(171)  # don't remove when you submit for grading
-    pass # replace this pass (a do-nothing) statement with your code
+
+    # loop 10 times
+    for i in range(0,10):
+        #roll a die
+        roll = random.randint(1,6)
+
+        #print result
+        print(roll)
+
+
+
+#testing my function
+problem2_5()
+
+
+
 
 #%%
 """
@@ -240,8 +313,30 @@ def problem2_6():
     """ Simulates rolling 2 dice 100 times """
     # Setting the seed makes the random numbers always the same
     # This is to make the auto-grader's job easier.
+
     random.seed(431)  # don't remove when you submit for grading
-    pass # replace this pass (a do-nothing) statement with your code
+
+    # loop 100 times
+    for i in range(0,100):
+        #roll die 1
+        roll_1 = random.randint(1,6)
+
+        #roll die 2
+        roll_2 = random.randint(1,6)
+
+        #print result of the sum of both dice
+        print(roll_1 + roll_2)
+
+    
+
+
+
+#testing my function
+problem2_6()
+
+
+
+
 
    
 #%%
@@ -303,8 +398,24 @@ Area of a triangle with sides 9.0 12.0 15.0 is 54.0
 
 def problem2_7():
     """ computes area of triangle using Heron's formula. """
-    pass # replace this pass (a do-nothing) statement with your code
     
+    #get triangle sides interactively. Then convert to float
+    side_1 = input("Enter the length of side one:")
+    a = float(side_1)
+    side_2 = input("Enter the length of side two:")
+    b = float(side_2)
+    side_3 = input("Enter the length of side three:")
+    c = float(side_3)
+
+    #Let's compute Heron's formula
+    s = .5*(a + b + c)
+
+    area = s*(s-a)*(s-b)*(s-c)
+    area = area ** .5 #square rooting happens here
+
+    print("Area of a triangle with sides {} {} {} is {}".format(a,b,c,area))
+    
+problem2_7()
 #%%
 """ 
 Problem 2_8:
@@ -325,9 +436,27 @@ hourly_temp = [40.0, 39.0, 37.0, 34.0, 33.0, 34.0, 36.0, 37.0, 38.0, 39.0, \
                36.0, 35.0, 33.0, 32.0]
 #%%
 def problem2_8(temp_list):
-    pass # replace this pass (a do-nothing) statement with your code
-        
+    #Create a place to store the running total.
+    my_sum = 0
     
+    #add all items in the list together one at a time.
+    for item in temp_list:
+        my_sum = my_sum + item
+
+    #Calculate the statistics for avg, max and min
+    Avg_temp = my_sum / len(temp_list)
+    High_temp = max(temp_list)
+    Low_temp = min(temp_list)
+    
+    #Print result of statistics 
+    print("Average: {}".format(Avg_temp))
+    print("High: {}".format(High_temp)) 
+    print("Low: {}".format(Low_temp))
+
+problem2_8(hourly_temp)
+
+
+
 #%%
 """
 Sample run using the list hourly_temp. Note that the grader will use a
