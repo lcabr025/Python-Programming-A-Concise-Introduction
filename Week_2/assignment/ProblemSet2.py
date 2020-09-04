@@ -27,8 +27,23 @@ does all of the following, each on a separate line:
 """  
 #%%      
 def problem2_1():
-    pass # replace this pass (a do-nothing) statement with your code
 
+    # Here we dynamically create a list using the list() function and the range() function
+    lis = list(range(20,30))
+
+    # (a) Print the element of lis with the index 3
+    print(lis[3])
+
+    # (b) print lis itself
+    print(lis)
+
+    # (c) Write a 'for' loop that prints out every element of lis.
+    for num in lis:
+        print(lis, end=' ')
+    print()
+
+# Time to test our function!!! Let's call it and see what happens
+problem2_1()
 
 
 
