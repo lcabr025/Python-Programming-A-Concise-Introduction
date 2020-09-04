@@ -25,4 +25,4 @@ def problem2_1():
     # (c) Write a 'for' loop that prints out every element of lis.
     for num in lis:
         print(num, end=' ')
-    print()
+    #print()
