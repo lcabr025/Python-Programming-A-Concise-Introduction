@@ -1,4 +1,3 @@
-#%%
 """"
 Problem 2_5:
 Let's do a small simulation. Suppose that you rolled a die repeatedly. Each 

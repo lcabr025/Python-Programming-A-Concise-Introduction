@@ -1,4 +1,3 @@
-
 """ 
 Problem 2_3:
 Write a function problem2_3() that should have a 'for' loop that steps
