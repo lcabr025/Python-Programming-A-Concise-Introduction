@@ -26,8 +26,20 @@ There are 141 letters in the file.
 
 """
 #%%
-def problem3_1(txtfilename):
-    pass # replace this pass (a do-nothing) statement with your code
+import sys
+
+def problem3_1(txtfilename):    #defining the function
+    f = open(txtfilename)   #open the file for reading
+
+    count = 0   #set count to 0
+    for line in f.readlines():  #step through each line in the text file
+        print(line, end="" )    #print
+        count = count +len(line)    #to get the number of characters in the text file
+    print()   #calling this after using end="" to add a final new line
+
+    print("\nThere are {} letters in the file.".format(count))
+
+#problem3_1('..\\lecture\\humptydumpty.txt') #calling the function
 
 #%%
 """ 
@@ -52,7 +64,15 @@ str1 = "Rumplestilskin"             # string
 
 #%%
 def problem3_2(collection):
-    pass # replace this pass (a do-nothing) statement with your code
+    
+    for item in collection:    #step through each line in the text file
+        print(item)
+
+# test my function!
+# problem3_2(nlis)
+# problem3_2(atup)
+# problem3_2(str1)
+
 #%%
 """ 
 My runs 
@@ -115,7 +135,10 @@ exactly. Everything you need to do this is covered in the lectures. ***
 def problem3_3(month, day, year):
     """ Takes date of form mm/dd/yyyy and writes it in form June 17, 2016 
         Example3_3: problem3_3(6, 17, 2016) gives June 17, 2016 """
-    pass # replace this pass (a do-nothing) statement with your code
+
+    months = ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')
+
+    print('{} {}, {}'.format(months[month-1], day, year))
 
 #%%
 """
@@ -136,14 +159,17 @@ lectures. ***
 
 Here is a printout of my run for June 17, 2016.
 
-problem3_4("July",17, 2016)
+problem3_4("July"17, 2016)
 7/17/2016
 
 """
 #%%
 def problem3_4(mon, day, year):
     """ Takes date such as July 17, 2016 and write it as 7/17/2016 """
-    pass # replace this pass (a do-nothing) statement with your code
+
+    months = {'January':1, 'February':2, 'March':3, 'April':4, 'May':5, 'June':6, 'July':7, 'August':8, 'September':9, 'October':10, 'November':11, 'December':12}
+
+    print('{}/{}/{}'.format(months[mon], day, year))
 
 #%%
 """    
@@ -168,7 +194,7 @@ def problem3_5(name):
     
     phone_numbers = {"abbie":"(860) 123-4535", "beverly":"(901) 454-3241", \
                       "james": "(212) 567-8149", "thomas": "(795) 342-9145"}
-    pass # replace this pass (a do-nothing) statement with your code
+    print(phone_numbers[name])
 
 #%%
 """
@@ -221,7 +247,25 @@ problem3_7("flowers.csv","alyssum")
 Solution starter:
 """
 #%%
+
+import csv
+
 def problem3_7(csv_pricefile, flower):
-    pass # replace this pass (a do-nothing) statement with your code
+    infile = open(csv_pricefile, 'r')
+
+    price = 0.00
+    for row in csv.reader(infile):
+        flowername = row[0]
+        price = row[1]
+        if flower == flowername:
+             break
+
+    infile.close()
+    print(price)
+
+problem3_7('..\\lecture\\flowers.csv', 'alyssum')
+problem3_7('..\\lecture\\flowers.csv', 'begonia')
+problem3_7('..\\lecture\\flowers.csv', 'coelius')
+
     
 #%%
