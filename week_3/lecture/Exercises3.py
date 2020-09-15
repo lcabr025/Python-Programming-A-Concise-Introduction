@@ -86,19 +86,19 @@ for item in d.items():
     print(item[0], "--> ", item[1])
 #%%
 for item in d.items():
-    print(item[0], "--> ", item[1])
+    print(item[0], "--> ", item[1]) #lookup by items (keys and values)
 #%%
 for key in d:
-    print(key, "--> ", d[key])
+    print(key, "--> ", d[key]) #d[key] is equal to the lookup of the value
 #%%
 for key in d.keys():
-    print(key, "--> ", d[key])
+    print(key, "--> ", d[key]) #lookup of the key
 #%%
 """
 If you want to see only the values:
 """
 #%%
-for value in d.values():
+for value in d.values(): #only shows the value
     print(value)
 #%%
 """    
@@ -141,7 +141,7 @@ ascars = {"Ford" : "Mustang","Mazda" : "Miata", "Scion" : "FR-S",
 Solutions 
 """
 #%%
-"a"
+"a" 
 #%%
 ascars["Nissan"]
 #%%
@@ -196,19 +196,19 @@ agedict = {"George":"17","Sally":"19",
              "Catherine":"18"}
 #%%
 # Which work (you might copy each into IPython and see whether it works)?
-namelist[1]   # yes or no
-mytuple[1]    # yes or no
-agedict[1]    # yes or no      
+namelist[1]   # yes or no      #YES
+mytuple[1]    # yes or no      #YES
+agedict[1]    # yes or no      #NO
 #%%
 # Which work?
-namelist.append("Rod")   # yes or no
-mytuple.append("Rod")    # yes or no
-agedict.append("Rod")    # yes or no
+namelist.append("Rod")   # yes or no        #YES
+mytuple.append("Rod")    # yes or no        #NO
+agedict.append("Rod")    # yes or no        #NO
 #%%
 # Which work?
-namelist[1]="Rod"    # yes or no
-mytuple[1] = "Rod"   # yes or no
-agedict["Rod"]="23"  # yes or no
+namelist[1]="Rod"    # yes or no        #YES
+mytuple[1] = "Rod"   # yes or no        #NO
+agedict["Rod"]="23"  # yes or no        #YES
           
 #%%
 """
@@ -291,13 +291,20 @@ Use notepad (on pc) or textedit (on Mac) to look at the file to confirm it. An
 outline of what needs to be done is given as comments.
 """
 #%% 
-def write_to_file(filename, myname, myage, major):
-    # open file first
-    outfile.write("My name is "+ myname + " \n")
-    # write out the age and major in two lines
-    # close the file
+# def write_to_file(filename, myname, myage, major):
+#     # open file first
+#     outfile.write("My name is "+ myname + " \n")
+#     # write out the age and major in two lines
+#     # close the file
 
-    
+def write_to_file(filename, myname, myage, major):
+    outfile = open(filename, 'w')
+    outfile.write("My name is "+ myname + " \n")
+    outfile.write("my age is "+ str(myage) + " \n")
+    outfile.write("I am majoring in " + major + " \n")
+    outfile.close()
+# %%
+write_to_file("xmajor","George",21,"Physics")
 #%%
 """
 RUNNING STANDALONE SCRIPTS OR PROGAMS.
@@ -615,6 +622,23 @@ def read_csv_file2(filename):
     for row in csv.reader(f):
         pass # replace this line with your code
     f.close()
+
+
+#%%
+
+"""
+Solution:
+"""
+import csv
+
+def read_csv_file2(filename):
+    """Reads a CSV file and prints each row without list brackets. """
+    f = open(filename)
+    for row in csv.reader(f):
+        print(row[0], row[1], row[2])
+    f.close()
+
+
 #%%
 """
 End solution
@@ -683,17 +707,25 @@ Solution starter:
 def name_phone(csv_filename):
     
     # open the csv file here
+
+    import csv
+
+    csvfile = open(csv_filename, "w", newline"")
     
     while True:
         nextname = input("Enter a friend's name, press return to end: ")
         if nextname == "":
             break              # break jumps out of the loop
+        nexphone = input("Enter a friend's phone: ")
         print(nextname) 
+        print(nextphone)
         
-        # add lines here to build a row (that is, a list) and append these
-        # two pieces of data to it.  Write to the csv file
-        
-    # don't forget to close the csv file
+        line = []   # add lines here to build a row (that is, a list) and append these
+        line.append(nextname)   # two pieces of data to it.  Write to the csv file
+        line.append(nextphone)  # two pieces of data to it.  Write to the csv file
+        csv.writer(csvfile).writerow(line)
+
+    csvfile.close()   # don't forget to close the csv file
         
 #%% 
 """
